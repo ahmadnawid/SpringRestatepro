@@ -20,4 +20,9 @@ public class UserController {
         user.setPassword(encoder.encode(user.getPassword()));
         return userService.registerUser(user);
     }
+
+    @PostMapping("/login")
+    public String loginUser(@RequestBody User user) {
+        return userService.verifyUser(user);
+    }
 }
